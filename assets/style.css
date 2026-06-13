@@ -6,7 +6,7 @@ body {
 }
 
 .app-container {
-    background-color: white;
+    background-color: #d7f1fa;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -17,13 +17,14 @@ body {
     display: flex;
     align-items: center;
     border-bottom: 5px solid #638FEF;
-    padding: 30px 40px;
+    padding: 15px 25px;
     background-color: #0d0d0d;
 }
 
 .header-logo {
-    height: 150px;
-    margin-right: 40px;
+    height: 120px;
+    /* Reduced for better initial look */
+    margin-right: 30px;
 }
 
 .header-text h1 {
@@ -44,12 +45,12 @@ body {
 }
 
 .sidebar {
-    width: 280px;
+    width: 250px;
     background-color: #0d0d0d;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    color: white;
 }
 
 .content-area {
@@ -59,46 +60,13 @@ body {
     overflow-y: auto;
 }
 
-/* KPI Cards */
-.kpi-card {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    flex: 1;
-    text-align: center;
-    border: 1px solid #eee;
-    border-top: 4px solid #638FEF;
-}
-
-.kpi-card h3 {
-    color: #0d0d0d;
-    margin: 0;
-    font-size: 22px;
-}
-
-.kpi-card p {
-    color: #666;
-    margin: 5px 0 0 0;
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
 /* Custom Tabs */
 .custom-tab {
     background-color: #0d0d0d !important;
-    color: #aaa !important;
+    color: white !important;
     border: none !important;
     padding: 15px 20px !important;
     text-align: left !important;
-    font-size: 14px;
-    transition: all 0.3s;
-}
-
-.custom-tab:hover {
-    color: white !important;
-    background-color: #1a1a1a !important;
 }
 
 .custom-tab--selected {
@@ -109,99 +77,122 @@ body {
     font-weight: bold !important;
 }
 
-/* Graph Card */
-.graph-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    border: 1px solid #eee;
+/* Selection Tab Specifics */
+.selection-header-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 30px;
 }
 
-/* Prediction Button */
-.predict-btn {
-    width: 100%;
-    background-color: #e71010;
-    color: white;
-    padding: 15px;
-    border: none;
+.selection-main-img {
+    width: 400px;
+    max-width: 100%;
+}
+
+.selection-content-container {
+    display: flex;
+    gap: 30px;
+}
+
+.filters-sidebar {
+    width: 280px;
+    background-color: #f8f9fa;
+    padding: 20px;
     border-radius: 8px;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
+    border: 1px solid #dee2e6;
+    height: fit-content;
+    flex-shrink: 0;
 }
 
-.predict-btn:hover {
-    background-color: #c40d0d;
+.table-container {
+    flex: 1;
+    min-width: 0;
+    /* Important for flex child to allow overflow */
 }
 
-/* Sidebar Slider Styling */
-.global-filters {
+/* Car Card Styles */
+.car-card-placeholder {
     padding: 20px;
-    border-bottom: 1px solid #333;
+    border: 2px dashed #010101;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin-top: 15px;
 }
 
-/* Ensure the slider has enough room for labels */
-.rc-slider {
-    margin-bottom: 25px;
-    margin-top: 10px;
+.car-card {
+    padding: 20px;
+    border: 2px dashed #638FEF;
+    border-radius: 5px;
+    background-color: #e6f2ff;
+    margin-top: 15px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
-.sidebar .rc-slider-mark-text {
-    color: #ffffff !important; /* Pure white for maximum visibility */
-    font-size: 11px;
-    opacity: 0.8;
+.car-card-img {
+    width: 250px;
+    height: 180px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
 }
 
-.sidebar .rc-slider-mark-text-active {
-    color: #638FEF !important; /* Highlight active range color */
-    opacity: 1;
-    font-weight: bold;
+.car-card-details {
+    flex: 1;
 }
 
-.sidebar .rc-slider-rail {
-    background-color: #444 !important;
+.car-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
 }
 
-.sidebar .rc-slider-track {
-    background-color: #638FEF !important;
+.car-card-grid p {
+    margin: 0;
+    font-size: 14px;
 }
 
-.sidebar .rc-slider-handle {
-    border: solid 2px #638FEF !important;
-    background-color: #0d0d0d !important;
-}
-
-/* Sidebar Dropdown Styling */
-.dark-dropdown .Select-control {
-    background-color: #1a1a1a !important;
-    border: 1px solid #333 !important;
-    color: white !important;
-}
-
-.dark-dropdown .Select-menu-outer {
-    background-color: #1a1a1a !important;
-    color: white !important;
-    border: 1px solid #333 !important;
-}
-
-.dark-dropdown .Select-value-label {
-    color: white !important;
+.flex-responsive-row {
+    display: flex;
+    gap: 10px;
 }
 
 /* Responsive Media Queries */
 @media screen and (max-width: 992px) {
-    .main-content {
+    .flex-responsive-row {
         flex-direction: column;
     }
-    
-    .sidebar {
+
+    .selection-header-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .selection-main-img {
         width: 100%;
     }
-    
-    .kpi-card {
-        min-width: 150px;
+
+    .selection-content-container {
+        flex-direction: column;
+    }
+
+    .filters-sidebar {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .car-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .car-card-img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/3;
     }
 }
 
@@ -209,21 +200,43 @@ body {
     .header {
         flex-direction: column;
         text-align: center;
+        padding: 15px;
     }
-    
+
     .header-logo {
         margin-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        height: 80px;
     }
-    
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 0;
+    }
+
+    /* Make tabs horizontal on mobile */
     #tabs-inline {
         flex-direction: row !important;
         flex-wrap: wrap;
+        display: flex;
     }
-    
+
     .custom-tab {
         flex: 1;
-        min-width: 140px;
+        min-width: 120px;
         text-align: center !important;
+        padding: 10px !important;
+    }
+
+    .content-area {
+        padding: 15px;
+    }
+
+    .car-card-grid {
+        grid-template-columns: 1fr;
     }
 }

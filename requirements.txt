@@ -2,3 +2,4 @@ dash==4.2.0
 pandas==2.1.4
 plotly==6.8.0
 gunicorn
+scikit-learn

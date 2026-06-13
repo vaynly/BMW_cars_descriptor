@@ -459,7 +459,7 @@ def update_overview_year(selected_trans):
         paper_bgcolor='white', 
         margin=dict(t=40, b=20, l=20, r=20),
         xaxis_title="Production Year",
-        yaxis_title="Average Price (£)",
+        yaxis_title="Average Price",
         yaxis_tickformat="£,"
     )
     return fig_line

@@ -17,13 +17,13 @@ body {
     display: flex;
     align-items: center;
     border-bottom: 5px solid #638FEF;
-    padding: 15px 25px;
+    padding: 30px 40px;
     background-color: #0d0d0d;
 }
 
 .header-logo {
-    height: 60px;
-    margin-right: 30px;
+    height: 150px;
+    margin-right: 40px;
 }
 
 .header-text h1 {
@@ -134,6 +134,25 @@ body {
 
 .predict-btn:hover {
     background-color: #c40d0d;
+}
+
+/* Sidebar Slider Styling */
+.sidebar .rc-slider-mark-text {
+    color: #bbb !important;
+    font-size: 10px;
+}
+
+.sidebar .rc-slider-rail {
+    background-color: #444 !important;
+}
+
+.sidebar .rc-slider-track {
+    background-color: #638FEF !important;
+}
+
+.sidebar .rc-slider-handle {
+    border: solid 2px #638FEF !important;
+    background-color: #0d0d0d !important;
 }
 
 /* Sidebar Dropdown Styling */

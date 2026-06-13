@@ -73,13 +73,13 @@ def render_content(tab):
             html.P([
                 html.B('Ever wondered if that "low mileage" deal is actually a steal or just average? '),
                 "This section gives you a bird's-eye view of the BMW second-hand market. Use the charts below to understand general trends and price dynamics."
-            ], style={'lineHeight': '1.6', 'fontSize': '16px', 'color': '#2c3e50', 'marginBottom': '40px'}),
+            ], style={'lineHeight': '1.6', 'fontSize': '16px', 'color': "#000000", 'marginBottom': '40px'}),
             
             # Graph 1: 3D Market Surface
             html.Div(style={'marginBottom': '60px'}, children=[
-                html.H3('1. The 3D Market Surface', style={'color': '#0d0d0d', 'marginBottom': '10px'}),
+                html.H3('1. The 3D Market Surface', style={'color': "#000000", 'marginBottom': '10px'}),
                 html.P("This 3D scatter plot visualizes the interaction between three critical factors: Production Year, Mileage, and Price. By spinning this graph, you can see how cars drop in value as they get older and drive more miles. It's the ultimate 'Value Map' to see where the best deals typically hide.", style={'marginBottom': '15px'}),
-                html.Div(style={'backgroundColor': '#f8f9fa', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
+                html.Div(style={'backgroundColor': "#ffffff", 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
                     html.Label("Filter 3D Scatter by Transmission:", style={'fontWeight': 'bold'}),
                     dcc.Dropdown(id='overview-trans-filter-scatter', options=[{'label': t, 'value': t} for t in available_trans], multi=True, placeholder="All Transmissions")
                 ]),
@@ -88,9 +88,9 @@ def render_content(tab):
             
             # Graph 2: Price Trend
             html.Div(style={'marginBottom': '30px'}, children=[
-                html.H3('2. Average Price Trend', style={'color': '#0d0d0d', 'marginBottom': '10px'}),
-                html.P("This line chart simplifies the chaos. It shows the average market price for each production year. It helps you quickly spot 'sweet spots' in the market where a one-year difference in age results in a significant price drop (or jump).", style={'marginBottom': '15px'}),
-                html.Div(style={'backgroundColor': '#f8f9fa', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
+                html.H3('2. Average Price Trend', style={'color': "#000000", 'marginBottom': '10px'}),
+                html.P("This line chart simplifies the chaos. It shows the average market price for each production year. It helps you quickly spot 'sweet spots' in the market where a one-year difference in age results in a significant price drop.", style={'marginBottom': '15px'}),
+                html.Div(style={'backgroundColor': '#ffffff', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
                     html.Label("Filter Year Line by Transmission:", style={'fontWeight': 'bold'}),
                     dcc.Dropdown(id='overview-trans-filter-year', options=[{'label': t, 'value': t} for t in available_trans], multi=True, placeholder="All Transmissions")
                 ]),
@@ -105,14 +105,14 @@ def render_content(tab):
             html.H2('Efficiency: Performance vs. Wallet', style={'color': '#638FEF', 'marginBottom': '10px'}),
             html.P([
                 html.B('BMW is about performance, but your bank account cares about the MPG. '),
-                "In this tab, we break down the running costs and technical efficiency of different models."
-            ], style={'lineHeight': '1.6', 'fontSize': '16px', 'color': '#2c3e50', 'marginBottom': '30px'}),
+                "In this tab, yoy can break down the running costs and technical efficiency of different models."
+            ], style={'lineHeight': '1.6', 'fontSize': '16px', 'color': "#000000", 'marginBottom': '30px'}),
             
             # Graph 1: Economy vs Engine Size
             html.Div(style={'marginBottom': '60px'}, children=[
-                html.H3('1. Economy vs. Engine Size', style={'color': '#0d0d0d', 'marginBottom': '10px'}),
-                html.P("Does a bigger engine always mean more gas? This scatter plot shows the trade-off between engine displacement and fuel efficiency (MPG). Higher points mean better efficiency, while points further to the right show more powerful engines. It helps you find models that punch above their weight in efficiency."),
-                html.Div(style={'backgroundColor': '#f8f9fa', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
+                html.H3('1. Economy vs. Engine Size', style={'color': '#000000', 'marginBottom': '10px'}),
+                html.P("Does a bigger engine always mean more gas? This scatter plot shows the trade-off between engine displacement and fuel efficiency. Higher points mean better efficiency, while points further to the right show more powerful engines. It helps you find models that punch above their weight in efficiency."),
+                html.Div(style={'backgroundColor': '#ffffff', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
                     html.Label("Filter Scatter by Fuel Type:", style={'fontWeight': 'bold'}),
                     dcc.Dropdown(id='eff-filter-scatter', options=[{'label': f, 'value': f} for f in available_fuel], multi=True, placeholder="Fuel Types")
                 ]),
@@ -121,9 +121,9 @@ def render_content(tab):
 
             # Graph 2: Engine Size Distribution
             html.Div(style={'marginBottom': '60px'}, children=[
-                html.H3('2. Engine Size Distribution', style={'color': '#0d0d0d', 'marginBottom': '10px'}),
+                html.H3('2. Engine Size Distribution', style={'color': '#000000', 'marginBottom': '10px'}),
                 html.P("This histogram shows which engine sizes are most common in the second-hand market. It gives you an idea of what 'standard' performance looks like for BMW and helps you see if you're looking at a common mid-range model or a rare high-capacity beast."),
-                html.Div(style={'backgroundColor': '#f8f9fa', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
+                html.Div(style={'backgroundColor': '#ffffff', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
                     html.Label("Filter Histogram by Fuel Type:", style={'fontWeight': 'bold'}),
                     dcc.Dropdown(id='eff-filter-hist', options=[{'label': f, 'value': f} for f in available_fuel], multi=True, placeholder="Fuel Types")
                 ]),
@@ -132,9 +132,9 @@ def render_content(tab):
 
             # Graph 3: MPG Variability
             html.Div(style={'marginBottom': '60px'}, children=[
-                html.H3('3. MPG Variability by Gearbox', style={'color': '#0d0d0d', 'marginBottom': '10px'}),
-                html.P("This boxplot shows the range of fuel economy for different transmissions. The 'box' shows where most cars fall, while the lines (whiskers) show the outliers. It’s a great way to see if a specific gearbox type (like Manual vs Semi-Auto) consistently delivers better mileage."),
-                html.Div(style={'backgroundColor': '#f8f9fa', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
+                html.H3('3. MPG Variability by Gearbox', style={'color': '#000000', 'marginBottom': '10px'}),
+                html.P("This boxplot shows the range of fuel economy for different transmissions. The box shows where most cars fall, while the lines show the outliers. It’s a great way to see if a specific gearbox type consistently delivers better mileage."),
+                html.Div(style={'backgroundColor': '#ffffff', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
                     html.Label("Filter Boxplot by Fuel Type:", style={'fontWeight': 'bold'}),
                     dcc.Dropdown(id='eff-filter-box', options=[{'label': f, 'value': f} for f in available_fuel], multi=True, placeholder="Fuel Types")
                 ]),
@@ -143,9 +143,9 @@ def render_content(tab):
 
             # Graph 4: Normalized Efficiency Profile
             html.Div(style={'marginBottom': '30px'}, children=[
-                html.H3('4. The Normalized Efficiency Profile', style={'color': '#0d0d0d', 'marginBottom': '10px'}),
-                html.P("This radar chart is the ultimate 'spec battle' tool. It compares selected models across four normalized metrics: Price, Mileage, Road Tax, and MPG. A larger covered area typically means a more well-rounded vehicle. It’s the best way to see which model gives you the most balanced profile for your money."),
-                html.Div(className='flex-responsive-row', style={'backgroundColor': '#f8f9fa', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
+                html.H3('4. The Normalized Efficiency Profile', style={'color': '#000000', 'marginBottom': '10px'}),
+                html.P("This radar chart is the ultimate battle tool. It compares selected models across four normalized metrics: Price, Mileage, Road Tax, and MPG. A larger covered area typically means a more well-rounded vehicle. It’s the best way to see which model gives you the most balanced profile for your money."),
+                html.Div(className='flex-responsive-row', style={'backgroundColor': '#ffffff', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
                     html.Div(style={'flex': '1'}, children=[
                         html.Label("Filter by Transmission:", style={'fontWeight': 'bold'}),
                         dcc.Dropdown(id='radar-filter-trans', options=[{'label': t, 'value': t} for t in available_trans], multi=True, placeholder="All")
@@ -166,28 +166,28 @@ def render_content(tab):
             html.P([
                 html.B("Can't decide between a 3 Series and a 5 Series? Let's settle the debate. "),
                 "This tab allows you to compare different series side-by-side using advanced visual metrics."
-            ], style={'lineHeight': '1.6', 'fontSize': '16px', 'color': '#2c3e50', 'marginBottom': '30px'}),
+            ], style={'lineHeight': '1.6', 'fontSize': '16px', 'color': "#000000", 'marginBottom': '30px'}),
             
-            # Comparison 1: Price Density
+            # Comparison 1: Market Hierarchy
             html.Div(style={'marginBottom': '60px'}, children=[
-                html.H3('1. Price Density (Violin Plot)', style={'color': '#0d0d0d', 'marginBottom': '10px'}),
-                html.P("While a standard chart shows averages, this violin plot shows the 'density' of prices. The wider the shape, the more cars are available at that price point. It helps you see if a model has a stable market value or if prices are highly unpredictable."),
-                html.Div(style={'backgroundColor': '#f8f9fa', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
-                    html.Label("Select Models to Compare Price Density:", style={'fontWeight': 'bold'}),
-                    dcc.Dropdown(id='compare-models-filter-price', options=[{'label': m, 'value': m} for m in available_models], value=available_models[:5], multi=True, placeholder="Select Models")
-                ]),
-                dcc.Graph(id='compare-graph-price')
-            ]),
-            
-            # Comparison 2: Market Hierarchy
-            html.Div(style={'marginBottom': '30px'}, children=[
-                html.H3('2. Market Hierarchy (Sunburst)', style={'color': '#0d0d0d', 'marginBottom': '10px'}),
-                html.P("This interactive chart shows how models are distributed across transmissions and fuel types. Click on the segments to 'zoom in'. It’s an easy way to discover if a model you like is mostly available in a specific configuration (like Diesel-Automatic)."),
-                html.Div(style={'backgroundColor': '#f8f9fa', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
+                html.H3('1. Market Hierarchy', style={'color': '#000000', 'marginBottom': '10px'}),
+                html.P("This interactive chart shows how models are distributed across transmissions and fuel types. It’s an easy way to discover if a model you like is mostly available in a specific configuration."),
+                html.Div(style={'backgroundColor': '#ffffff', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
                     html.Label("Select Models for Hierarchy Breakdown:", style={'fontWeight': 'bold'}),
                     dcc.Dropdown(id='compare-models-filter-pie', options=[{'label': m, 'value': m} for m in available_models], value=available_models[:5], multi=True, placeholder="Select Models")
                 ]),
                 dcc.Graph(id='compare-graph-pie')
+            ]),
+
+            # Comparison 2: Price Density
+            html.Div(style={'marginBottom': '30px'}, children=[
+                html.H3('2. Price Density', style={'color': '#000000', 'marginBottom': '10px'}),
+                html.P("While a standard chart shows averages, this violin plot shows the sdensity of prices. The wider the shape, the more cars are available at that price point. It helps you see if a model has a stable market value or if prices are highly unpredictable."),
+                html.Div(style={'backgroundColor': '#ffffff', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
+                    html.Label("Select Models to Compare Price Density:", style={'fontWeight': 'bold'}),
+                    dcc.Dropdown(id='compare-models-filter-price', options=[{'label': m, 'value': m} for m in available_models], value=available_models[:5], multi=True, placeholder="Select Models")
+                ]),
+                dcc.Graph(id='compare-graph-price')
             ])
         ])
         
@@ -220,7 +220,7 @@ def render_content(tab):
                         "Choosing a used BMW requires balancing many factors, including price, condition, mileage, and equipment. This tool is designed to simplify that process by helping you evaluate available vehicles using market data and objective criteria. Instead of reviewing numerous listings manually, you can filter, compare, and analyze vehicles to identify options that best match your requirements and budget."
                     ]),
                     
-                    html.H4('How to find your perfect match:', style={'marginTop': '25px', 'color': '#0d0d0d', 'marginBottom': '10px'}),
+                    html.H4('How to find your perfect match:', style={'marginTop': '25px', 'color': '#000000', 'marginBottom': '10px'}),
                     html.Ul([
                         html.Li([html.B("Define Your Criteria: "), "Use the filters in the sidebar to refine the selection. You can choose specific BMW models, transmission types, fuel options, and other vehicle characteristics."]),
                         html.Li([html.B("Analyze Price Distribution: "), "The chart on the left provides an overview of the price distribution for the currently selected vehicles. This allows you to better understand market pricing and identify offers that may differ significantly from the average."]),
@@ -433,9 +433,9 @@ def update_overview_scatter(selected_trans):
     fig_scatter = px.scatter_3d(
         dff.head(1000), x='year', y='mileage', z='price', color='transmission', opacity=0.7,
         title='3D Market Surface: Price, Mileage & Year',
-        color_discrete_sequence=['#638FEF', '#e71010', '#0d0d0d', '#28a745']
+        color_discrete_sequence=['#638FEF', '#e71010', '#000000', '#28a745']
     )
-    fig_scatter.update_layout(plot_bgcolor='#f8f9fa', paper_bgcolor='white', margin=dict(t=40, b=20, l=20, r=20), scene=dict(bgcolor='#f8f9fa'))
+    fig_scatter.update_layout(plot_bgcolor='#ffffff', paper_bgcolor='white', margin=dict(t=40, b=20, l=20, r=20), scene=dict(bgcolor='#ffffff'))
     return fig_scatter
 
 @app.callback(
@@ -455,7 +455,7 @@ def update_overview_year(selected_trans):
         color_discrete_sequence=['#e71010']
     )
     fig_line.update_layout(
-        plot_bgcolor='#f8f9fa', 
+        plot_bgcolor='#ffffff', 
         paper_bgcolor='white', 
         margin=dict(t=40, b=20, l=20, r=20),
         xaxis_title="Production Year",
@@ -477,9 +477,9 @@ def update_eff_scatter(selected_fuel):
         fig = px.scatter(
             dff.head(1500), x='engineSize', y='mpg', color='transmission', opacity=0.7,
             title='Economy vs Engine Size', hover_name='model',
-            color_discrete_sequence=['#638FEF', '#e71010', '#0d0d0d', '#28a745']
+            color_discrete_sequence=['#638FEF', '#e71010', '#000000', '#28a745']
         )
-        fig.update_layout(plot_bgcolor='#f8f9fa', paper_bgcolor='white', margin=dict(t=40, b=20, l=10, r=10))
+        fig.update_layout(plot_bgcolor='#ffffff', paper_bgcolor='white', margin=dict(t=40, b=20, l=10, r=10))
         return fig
     return px.scatter(title="Not enough data")
 
@@ -494,9 +494,9 @@ def update_eff_hist(selected_fuel):
     if not dff.empty:
         fig = px.histogram(
             dff, x='engineSize', color='transmission', title='Engine Size Dist', nbins=20,
-            color_discrete_sequence=['#638FEF', '#e71010', '#0d0d0d', '#28a745']
+            color_discrete_sequence=['#638FEF', '#e71010', '#000000', '#28a745']
         )
-        fig.update_layout(plot_bgcolor='#f8f9fa', paper_bgcolor='white', margin=dict(t=40, b=20, l=10, r=10))
+        fig.update_layout(plot_bgcolor='#ffffff', paper_bgcolor='white', margin=dict(t=40, b=20, l=10, r=10))
         return fig
     return px.scatter(title="Not enough data")
 
@@ -511,9 +511,9 @@ def update_eff_box(selected_fuel):
     if not dff.empty:
         fig = px.box(
             dff, y='mpg', color='transmission', title='MPG Boxplot',
-            color_discrete_sequence=['#638FEF', '#e71010', '#0d0d0d', '#28a745']
+            color_discrete_sequence=['#638FEF', '#e71010', '#000000', '#28a745']
         )
-        fig.update_layout(plot_bgcolor='#f8f9fa', paper_bgcolor='white', margin=dict(t=40, b=20, l=10, r=10))
+        fig.update_layout(plot_bgcolor='#ffffff', paper_bgcolor='white', margin=dict(t=40, b=20, l=10, r=10))
         return fig
     return px.scatter(title="Not enough data")
 
@@ -550,7 +550,7 @@ def update_efficiency_tax(selected_trans, selected_models):
             fig_radar = px.line_polar(radar_df, r='value', theta='metric', color='model', line_close=True,
                                       title='Models Normalized Efficiency Profile',
                                       color_discrete_sequence=px.colors.qualitative.Safe)
-            fig_radar.update_layout(polar=dict(radialaxis=dict(visible=False)), plot_bgcolor='#f8f9fa', paper_bgcolor='white', margin=dict(t=60, b=20, l=20, r=20))
+            fig_radar.update_layout(polar=dict(radialaxis=dict(visible=False)), plot_bgcolor='#ffffff', paper_bgcolor='white', margin=dict(t=60, b=20, l=20, r=20))
             return fig_radar
             
     return px.scatter(title="Not enough data")
@@ -572,7 +572,7 @@ def update_compare_price(selected_models):
             title='Price Distribution with Density (Violin Plot)',
             color_discrete_sequence=px.colors.qualitative.Safe
         )
-        fig_violin.update_layout(plot_bgcolor='#f8f9fa', paper_bgcolor='white', showlegend=False, margin=dict(t=40, b=20, l=20, r=20))
+        fig_violin.update_layout(plot_bgcolor='#ffffff', paper_bgcolor='white', showlegend=False, margin=dict(t=40, b=20, l=20, r=20))
         return fig_violin
     return px.scatter(title="Not enough data")
 
@@ -590,7 +590,7 @@ def update_compare_pie(selected_models):
         fig_sunburst = px.sunburst(
             dff, path=['transmission', 'fuelType', 'model'],
             title='Market Hierarchy: Gearbox -> Fuel -> Model',
-            color_discrete_sequence=['#638FEF', '#0d0d0d', '#e71010', '#28a745']
+            color_discrete_sequence=['#638FEF', '#000000', '#e71010', '#28a745']
         )
         fig_sunburst.update_traces(hovertemplate='<b>%{label}</b><br>Amount of cars: %{value}<extra></extra>')
         fig_sunburst.update_layout(margin=dict(t=40, b=20, l=20, r=20), paper_bgcolor='white')

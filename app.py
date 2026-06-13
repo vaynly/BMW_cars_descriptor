@@ -8,57 +8,55 @@ import plotly.express as px
 df = pd.read_csv('bmw.csv')
 
 # Initialize Dash application
-app = dash.Dash(__name__, suppress_callback_exceptions=True)
+app = dash.Dash(
+    __name__, 
+    suppress_callback_exceptions=True,
+    meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}]
+)
 server = app.server
 app.title = "The Best Cars — BMW"
 
 # 2. Application Layout
-app.layout = html.Div(style={'fontFamily': 'Arial, sans-serif', 'height': '100vh', 'backgroundColor': "#d7f1fa", 'display': 'flex', 'flexDirection': 'column', 'margin': '-8px'}, children=[
+app.layout = html.Div(className='app-container', children=[
     
     # Header
-    html.Div(style={
-        'display': 'flex', 
-        'alignItems': 'center', 
-        'borderBottom': '5px solid #638FEF', 
-        'padding': '15px 25px', 
-        'backgroundColor': "#0d0d0d"
-    }, children=[
+    html.Div(className='header', children=[
         html.Img(
             src=app.get_asset_url('logo.png'), 
-            style={'height': '200px', 'marginRight': '30px'}
+            className='header-logo'
         ),
-        html.Div(children=[
+        html.Div(className='header-text', children=[
             html.H1("The Best Cars - BMW", style={'color': "#e71010", 'margin': '0', 'fontSize': '24px', 'fontFamily': 'Arial, sans-serif'}),
             html.P("Second-hand cars descriptor", style={'color': "#638FEF", 'margin': '0', 'fontFamily': 'Arial, sans-serif'})
         ])
     ]),
 
     # Main content with Sidebar
-    html.Div(style={'display': 'flex', 'flex': '1', 'overflow': 'hidden'}, children=[
+    html.Div(className='main-content', children=[
         
         # Sidebar
-        html.Div(style={'width': '250px', 'backgroundColor': '#0d0d0d', 'padding': '20px 0', 'display': 'flex', 'flexDirection': 'column'}, children=[
+        html.Div(className='sidebar', children=[
             dcc.Tabs(id="tabs-inline", value='tab-overview', vertical=True, children=[
                 dcc.Tab(label='Market Overview', value='tab-overview', 
-                        style={'backgroundColor': '#0d0d0d', 'color': 'white', 'border': 'none', 'padding': '15px 20px', 'textAlign': 'left'},
-                        selected_style={'backgroundColor': '#638FEF', 'color': 'white', 'border': 'none', 'padding': '15px 20px', 'fontWeight': 'bold'}),
+                        className='custom-tab',
+                        selected_className='custom-tab--selected'),
                 dcc.Tab(label='Efficiency', value='tab-efficiency', 
-                        style={'backgroundColor': '#0d0d0d', 'color': 'white', 'border': 'none', 'padding': '15px 20px', 'textAlign': 'left'},
-                        selected_style={'backgroundColor': '#638FEF', 'color': 'white', 'border': 'none', 'padding': '15px 20px', 'fontWeight': 'bold'}),
+                        className='custom-tab',
+                        selected_className='custom-tab--selected'),
                 dcc.Tab(label='Compare Series', value='tab-compare', 
-                        style={'backgroundColor': '#0d0d0d', 'color': 'white', 'border': 'none', 'padding': '15px 20px', 'textAlign': 'left'},
-                        selected_style={'backgroundColor': '#638FEF', 'color': 'white', 'border': 'none', 'padding': '15px 20px', 'fontWeight': 'bold'}),
+                        className='custom-tab',
+                        selected_className='custom-tab--selected'),
                 dcc.Tab(label='Smart Choice', value='tab-selection', 
-                        style={'backgroundColor': '#0d0d0d', 'color': 'white', 'border': 'none', 'padding': '15px 20px', 'textAlign': 'left'},
-                        selected_style={'backgroundColor': '#638FEF', 'color': 'white', 'border': 'none', 'padding': '15px 20px', 'fontWeight': 'bold'}),
+                        className='custom-tab',
+                        selected_className='custom-tab--selected'),
                 dcc.Tab(label='About/Help', value='tab-about', 
-                        style={'backgroundColor': '#0d0d0d', 'color': 'white', 'border': 'none', 'padding': '15px 20px', 'textAlign': 'left'},
-                        selected_style={'backgroundColor': '#638FEF', 'color': 'white', 'border': 'none', 'padding': '15px 20px', 'fontWeight': 'bold'}),
+                        className='custom-tab',
+                        selected_className='custom-tab--selected'),
             ], colors={"border": "transparent", "primary": "transparent", "background": "transparent"}),
         ]),
         
         # Content Area
-        html.Div(id='tabs-content', style={'flex': '1', 'padding': '30px', 'backgroundColor': 'white', 'overflowY': 'auto'})
+        html.Div(id='tabs-content', className='content-area')
     ])
 ])
 
@@ -147,7 +145,7 @@ def render_content(tab):
             html.Div(style={'marginBottom': '30px'}, children=[
                 html.H3('4. The Normalized Efficiency Profile', style={'color': '#0d0d0d', 'marginBottom': '10px'}),
                 html.P("This radar chart is the ultimate 'spec battle' tool. It compares selected models across four normalized metrics: Price, Mileage, Road Tax, and MPG. A larger covered area typically means a more well-rounded vehicle. It’s the best way to see which model gives you the most balanced profile for your money."),
-                html.Div(style={'display': 'flex', 'gap': '10px', 'backgroundColor': '#f8f9fa', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
+                html.Div(className='flex-responsive-row', style={'backgroundColor': '#f8f9fa', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6', 'marginBottom': '15px'}, children=[
                     html.Div(style={'flex': '1'}, children=[
                         html.Label("Filter by Transmission:", style={'fontWeight': 'bold'}),
                         dcc.Dropdown(id='radar-filter-trans', options=[{'label': t, 'value': t} for t in available_trans], multi=True, placeholder="All")
@@ -206,18 +204,16 @@ def render_content(tab):
         return html.Div(children=[
             
             # Header and Description Section (Flex)
-            html.Div(style={'display': 'flex', 'gap': '40px', 'alignItems': 'flex-start', 'marginBottom': '30px'}, children=[
+            html.Div(className='selection-header-container', children=[
                 
                 # Left: Image
                 html.Img(
                     src=app.get_asset_url('smart.jpg'), 
-                    style={
-                        'width': '400px', 
-                    }
+                    className='selection-main-img'
                 ),
 
                 # Right: Title and Description
-                html.Div(style={'flex': '1', 'lineHeight': '1.6', 'fontSize': '16px', 'color': '#2c3e50'}, children=[
+                html.Div(className='selection-text-container', children=[
                     html.H2('Smart Choice: Your Data-Driven BMW Finder', style={'color': '#638FEF', 'marginBottom': '15px', 'marginTop': '0'}),
                     html.P([
                         html.B("Let’s be real — buying a used BMW is a bit of a gamble. "),
@@ -236,13 +232,10 @@ def render_content(tab):
             ]),
 
             # 2. Filters and Table in one row (Flex)
-            html.Div(style={'display': 'flex', 'gap': '30px'}, children=[
+            html.Div(className='selection-content-container', children=[
                 
                 # Filters Sidebar
-                html.Div(style={
-                    'width': '280px', 'backgroundColor': '#f8f9fa', 'padding': '20px', 
-                    'borderRadius': '8px', 'border': '1px solid #dee2e6', 'height': 'fit-content'
-                }, children=[
+                html.Div(className='filters-sidebar', children=[
                     html.H3("Search Filters", style={'color': "#000000", 'marginTop': '0', 'fontSize': '18px'}),
                     
                     html.Label("Model:", style={'fontWeight': 'bold', 'fontSize': '14px'}),
@@ -269,7 +262,7 @@ def render_content(tab):
                 ]),
                 
                 # Table and Detail Card
-                html.Div(style={'flex': '1'}, children=[
+                html.Div(className='table-container', children=[
                     # DataTable with sorting
                     dash_table.DataTable(
                         id='cars-table',
@@ -391,9 +384,7 @@ def filter_data(selected_models, selected_trans, selected_fuel, max_price, activ
 )
 def update_card(selected_rows, table_data):
     if not selected_rows or not table_data:
-        return html.Div(style={
-            'padding': '20px', 'border': '2px dashed #010101', 'borderRadius': '5px', 'backgroundColor': "#ffffff", 'marginTop': '15px'
-        }, children=[
+        return html.Div(className='car-card-placeholder', children=[
             html.H4("Please choose exact car for additional information", style={'color': "#010101", 'margin': '0'})
         ])
     
@@ -406,21 +397,19 @@ def update_card(selected_rows, table_data):
         model_name_formatted = model_name.replace(' ', '_')
         img_url = f'/assets/cars/{model_name_formatted}.jpg'
         
-        return html.Div(style={
-            'padding': '20px', 'border': '2px dashed #638FEF', 'borderRadius': '5px', 'backgroundColor': '#e6f2ff', 'marginTop': '15px', 'display': 'flex', 'gap': '20px', 'alignItems': 'center'
-        }, children=[
-            html.Img(src=img_url, style={'width': '250px', 'height': '180px', 'borderRadius': '8px', 'objectFit': 'cover', 'boxShadow': '0 4px 8px rgba(0,0,0,0.1)'}),
-            html.Div(style={'flex': '1'}, children=[
+        return html.Div(className='car-card', children=[
+            html.Img(src=img_url, className='car-card-img'),
+            html.Div(className='car-card-details', children=[
                 html.H3(f"Chosen car: BMW {model_name}", style={'color': '#638FEF', 'margin': '0 0 10px 0'}),
-                html.Div(style={'display': 'grid', 'gridTemplateColumns': '1fr 1fr', 'gap': '10px'}, children=[
-                    html.P([html.B("Year of manufacture: "), car_data.get('year', 'N/A')]),
+                html.Div(className='car-card-grid', children=[
+                    html.P([html.B("Year: "), car_data.get('year', 'N/A')]),
                     html.P([html.B("Price: "), f"£{int(car_data.get('price', 0)):,}"]),
                     html.P([html.B("Mileage: "), f"{int(car_data.get('mileage', 0)):,} miles"]),
-                    html.P([html.B("Type of transmission: "), car_data.get('transmission', 'N/A')]),
-                    html.P([html.B("Type of fuel: "), car_data.get('fuelType', 'N/A')]),
-                    html.P([html.B("Engine displacement: "), f"{car_data.get('engineSize', 'N/A')} L"]),
-                    html.P([html.B("Fuel consumption: "), f"{car_data.get('mpg', 'N/A')} MPG"]),
-                    html.P([html.B("Road tax: "), f"£{car_data.get('tax', 'N/A')}"])
+                    html.P([html.B("Trans: "), car_data.get('transmission', 'N/A')]),
+                    html.P([html.B("Fuel: "), car_data.get('fuelType', 'N/A')]),
+                    html.P([html.B("Engine: "), f"{car_data.get('engineSize', 'N/A')} L"]),
+                    html.P([html.B("MPG: "), f"{car_data.get('mpg', 'N/A')}"]),
+                    html.P([html.B("Tax: "), f"£{car_data.get('tax', 'N/A')}"])
                 ])
             ])
         ])

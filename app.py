@@ -213,9 +213,6 @@ def render_content(tab):
                     src=app.get_asset_url('smart.jpg'), 
                     style={
                         'width': '400px', 
-                        'borderRadius': '15px', 
-                        'boxShadow': '0 8px 20px rgba(0,0,0,0.15)',
-                        'border': '3px solid #638FEF'
                     }
                 ),
 

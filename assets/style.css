@@ -137,9 +137,27 @@ body {
 }
 
 /* Sidebar Slider Styling */
+.global-filters {
+    padding: 20px;
+    border-bottom: 1px solid #333;
+}
+
+/* Ensure the slider has enough room for labels */
+.rc-slider {
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
 .sidebar .rc-slider-mark-text {
-    color: #bbb !important;
-    font-size: 10px;
+    color: #ffffff !important; /* Pure white for maximum visibility */
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.sidebar .rc-slider-mark-text-active {
+    color: #638FEF !important; /* Highlight active range color */
+    opacity: 1;
+    font-weight: bold;
 }
 
 .sidebar .rc-slider-rail {

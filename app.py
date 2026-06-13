@@ -9,6 +9,7 @@ df = pd.read_csv('bmw.csv')
 
 # Initialize Dash application
 app = dash.Dash(__name__, suppress_callback_exceptions=True)
+server = app.server
 app.title = "The Best Cars — BMW"
 
 # 2. Application Layout
